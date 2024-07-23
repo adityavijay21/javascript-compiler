@@ -10,7 +10,7 @@ const App = () => {
 
   const handleRunCode = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/compile', {
+      const response = await fetch('https://javascript-compiler-backend.onrender.com/api/compile', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ files }),
