@@ -1,4 +1,4 @@
-## Overview
+![GIF](readme.gif)
 
 This project is an advanced online JavaScript compiler that allows users to write, edit, and execute JavaScript code in a web browser. It features a multi-file system, syntax highlighting, and real-time code execution with console output display.
 
