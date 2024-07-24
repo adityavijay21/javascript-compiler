@@ -1,0 +1,158 @@
+:root {
+  --background: #212121;
+  --text-color: #000000;
+  --font-family: 'Inter', sans-serif;
+  --font-size: 14px;
+  --box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  --header-background: #d4d4d4;
+  --header-font-size: 1.25rem;
+  --header-font-weight: bold;
+  --heading-font-size: 1.5rem;
+  --heading-font-weight: 700;
+  --list-item-background: #ffffff;
+  --list-item-hover-background: #ffffff;
+  --list-item-active-background: #000000;
+  --list-item-active-text-color: #ffffff;
+  --icon-color: #ffffff;
+  --icon-font-size: 1.5rem;
+  --file-name-font-size: 1rem;
+  --file-size-color: #ffffff;
+  --file-size-font-size: 1rem;
+  --actions-background: #d4d4d4;
+  --button-font-size: 0.5rem;
+  --button-font-weight: 600;
+  --button-color: #000000;
+  --button-border-radius: 4px;
+  --button-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --add-file-button-background: #ffffff;
+  --add-file-button-hover-background: #dbdbdb;
+  --delete-file-button-background: #ffffff;
+  --delete-file-button-hover-background: #dbdbdb;
+}
+
+.file-explorer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  font-size: var(--font-size);
+}
+
+.file-explorer-header {
+  background-color: var(--header-background);
+  padding: 0.25rem 0.25rem;
+  font-size: var(--header-font-size);
+  font-weight: var(--header-font-weight);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #444;
+}
+
+.file-explorer-heading {
+  margin-left: 0;
+  color: var(--text-color);
+  font-size: var(--heading-font-size);
+  font-weight: var(--heading-font-weight);
+}
+
+.file-list {
+  flex: 1;
+  overflow: auto;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.file-list-item {
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  border-radius: 2px;
+  background-color: var(--list-item-background);
+  margin-bottom: 1px;
+}
+
+.file-list-item:hover {
+  background-color: var(--list-item-hover-background);
+  transform: scale(1.02);
+}
+
+.file-list-item.active {
+  background-color: var(--list-item-active-background);
+  color: var(--list-item-active-text-color);
+}
+
+.file-icon {
+  margin-right: 1rem;
+  color: var(--icon-color);
+  font-size: var(--icon-font-size);
+}
+
+.file-icon.active {
+  margin-right: 1rem;
+  color: var(--icon-color);
+  font-size: var(--icon-font-size);
+}
+
+.file-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: var(--file-name-font-size);
+}
+
+.file-size {
+  color: var(--file-size-color);
+  font-size: var(--file-size-font-size);
+}
+
+.file-actions {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: var(--actions-background);
+  border-top: 1px solid #444;
+  border-radius: 2px;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 1.75rem;
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  color: var(--button-color);
+  border-radius: var(--button-border-radius);
+  border: none;
+  box-shadow: var(--button-box-shadow);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.add-file-button {
+  background-color: var(--add-file-button-background);
+}
+
+.add-file-button:hover {
+  background-color: var(--add-file-button-hover-background);
+  transform: scale(1.05);
+}
+
+.delete-file-button {
+  background-color: var(--delete-file-button-background);
+}
+
+.delete-file-button:hover {
+  background-color: var(--delete-file-button-hover-background);
+}

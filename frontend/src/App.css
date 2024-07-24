@@ -1,38 +1,90 @@
-.App {
-  text-align: center;
+:root {
+  --primary-color: #34495e;
+  --secondary-color: #ecf0f1;
+  --accent-color: #16a085;
+  --background-color: #ecf0f1;
+  --text-color: rgb(0, 0, 0);
+  --font-family: 'Roboto', sans-serif;
+  --transition-duration: 0.3s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-container {
+  display: flex;
+  height: 100vh;
+  font-family: var(--font-family);
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.file-explorer {
+  width: 250px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  position: relative;
+  transition: transform var(--transition-duration) ease;
+  overflow-y: auto;
+  z-index: 1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.file-explorer.open {
+  transform: translateX(0);
+}
+
+.file-explorer.closed {
+  transform: translateX(-100%);
+}
+
+.toggle-explorer {
+  position: absolute;
+  top: 10px;
+  right: -40px;
+  background: var(--accent-color);
+  border: none;
+  color: white;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 18px;
+  transition: background var(--transition-duration);
+  z-index: 2;
+}
+
+.toggle-explorer:hover {
+  background: #1abc9c;
+}
+
+.main-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: var(--background-color);
+}
+
+.editor-container {
+  flex: 1;
+  overflow: hidden;
+}
+
+.control-panel {
+  padding: 10px;
+  background-color: #2c3e50;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.App-link {
-  color: #61dafb;
+.run-button {
+  background-color: #ffffff;
+  color: var(--text-color);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color var(--transition-duration);
+  border-radius: 3px;
+  margin-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.run-button:hover {
+  background-color: #aeaeae;
 }

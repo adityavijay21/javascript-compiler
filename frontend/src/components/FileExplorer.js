@@ -1,4 +1,6 @@
+import './file-explorer.css';
 import React from 'react';
+import { Plus, Trash2, File } from 'lucide-react';
 
 const FileExplorer = ({ files, setFiles, activeFile, setActiveFile }) => {
   const addNewFile = () => {
@@ -8,26 +10,56 @@ const FileExplorer = ({ files, setFiles, activeFile, setActiveFile }) => {
     }
   };
 
+  const removeFile = () => {
+    if (activeFile === null) return;
+
+    const fileName = files[activeFile]?.name;
+    if (fileName === 'index.js') {
+      alert('Cannot delete index.js file.');
+      return;
+    }
+
+    if (window.confirm('Are you sure you want to delete this file?')) {
+      setFiles(files.filter((_, i) => i !== activeFile));
+      setActiveFile(files.length > 1 ? Math.max(0, activeFile - 1) : null);
+    }
+  };
+
   return (
-    <div className="w-64 bg-gray-800 text-white p-4">
-      <h2 className="text-xl mb-4">Files</h2>
-      <ul>
+    <div className="file-explorer">
+      <header className="file-explorer-header">
+        <h2 className="file-explorer-heading">Files</h2>
+      </header>
+      <ul className="file-list">
         {files.map((file, index) => (
-          <li 
-            key={index} 
-            className={`cursor-pointer p-2 ${activeFile === index ? 'bg-blue-600' : ''}`}
+          <li
+            key={index}
+            className={`file-list-item ${activeFile === index ? 'active' : ''}`}
             onClick={() => setActiveFile(index)}
           >
-            {file.name}
+            <File size={18} className="file-icon-active" />
+            <span className="file-name">{file.name}</span>
+            <span className="file-size"> ({file.content.length} characters)</span>
           </li>
         ))}
       </ul>
-      <button 
-        onClick={addNewFile}
-        className="mt-4 bg-green-500 text-white p-2 rounded"
-      >
-        Add New File
-      </button>
+      <footer className="file-actions">
+        <button
+          onClick={addNewFile}
+          className="action-button add-file-button"
+        >
+          <Plus size={14} />
+          <span>Add File</span>
+        </button>
+        <button
+          onClick={removeFile}
+          className="action-button delete-file-button"
+          disabled={activeFile === null}
+        >
+          <Trash2 size={16} />
+          <span>Delete File</span>
+        </button>
+      </footer>
     </div>
   );
 };

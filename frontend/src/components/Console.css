@@ -1,0 +1,29 @@
+:root {
+    --console-color: #33cc33;
+    --label-color: #ffffff;
+    --font-family-terminal: 'Monaco', monospace;
+    --font-size-terminal: 18px;
+    --line-height-terminal: 1.2;
+    --font-size-small: 0.875rem; /* 14px */
+  }
+  
+  .console-container {
+    color: var(--console-color);
+  }
+  
+  .console-label {
+    color: #ffffff;
+  }
+  
+  .console-output {
+    padding: 1rem;
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  .console-text {
+    font-family: var(--font-family-terminal);
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-terminal);
+    white-space: pre-wrap;
+  }
